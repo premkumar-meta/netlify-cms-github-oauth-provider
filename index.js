@@ -20,7 +20,7 @@ const config = {
 const oauth2 = new simpleOauthModule.AuthorizationCode(config)
 
 console.log('--------------------------------------------------');
-console.log(oauth2);
+console.log('oauth2',oauth2);
 console.log('--------------------------------------------------');
 
 function indexMiddleWare (req, res) {

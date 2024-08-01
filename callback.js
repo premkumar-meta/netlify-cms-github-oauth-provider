@@ -21,6 +21,9 @@ module.exports = (oauth2, oauthProvider) => {
           token: token.token.token.access_token,
           provider: oauthProvider
         }
+        console.log('----------------------------');
+        console.log('content',content);
+        console.log('----------------------------');
         return { message: 'success', content }
       })
       .catch(error => {
