@@ -8,6 +8,10 @@ module.exports = (oauth2) => {
     state: randomstring.generate(32)
   })
 
+  console.log('------------------------------------');
+  console.log('authorizationUri',authorizationUri);
+  console.log('------------------------------------');
+
   return (req, res, next) => {
     res.redirect(authorizationUri)
   }
