@@ -2,12 +2,19 @@ import {AuthorizationCode} from 'simple-oauth2';
 import {randomBytes} from 'crypto';
 import {nanoServer} from '../lib/nano-server.js';
 import {config, logger} from '../config.js';
+import { AlwatrConnection } from '@alwatr/nano-server';
 
 export const randomString = () => randomBytes(4).toString('hex');
 
-nanoServer.route('GET', '/auth', (connection) => {
+nanoServer.route('GET', '/auth', (connection:  AlwatrConnection) => {
   const host = connection.incomingMessage.headers.host;
+  console.log('------------------------------');
+  console.log(host);
+  console.log('------------------------------');
   const url = new URL(`https://${host}/${connection.url}`);
+  console.log('------------------------------');
+  console.log(url);
+  console.log('------------------------------');
   const provider = url.searchParams.get('provider');
   logger.logMethodArgs?.('get-auth', {host, url, provider})
 
