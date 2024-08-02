@@ -7,6 +7,11 @@ import { AlwatrConnection } from '@alwatr/nano-server';
 export const randomString = () => randomBytes(4).toString('hex');
 
 nanoServer.route('GET', '/auth', (connection:  AlwatrConnection) => {
+
+  console.log('-------------------connection-----------------------');
+  console.log(connection);  
+  console.log('-------------------connection-----------------------');
+
   const host = connection.incomingMessage.headers.host;
   console.log('------------------------------');
   console.log(host);
