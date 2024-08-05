@@ -34,6 +34,10 @@ nanoServer.route('GET', '/callback', async (connection) => {
   const accessToken = await client.getToken(tokenParams);
   const token = accessToken.token['access_token'] as string;
 
+  console.log('-------------------script-------------------');
+  console.log(renderBody('success', token));
+  console.log('-------------------script-------------------');
+  
   connection.serverResponse.end(renderBody('success', token))
 
   return {
