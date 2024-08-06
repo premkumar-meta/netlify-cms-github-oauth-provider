@@ -3,6 +3,7 @@ import {config, logger} from '../config.js';
 import {nanoServer} from '../lib/nano-server.js'
 
 nanoServer.route('GET', '/callback', async (connection) => {
+  console.log('---------------------------------------------------------------------------------------------');
   const host = connection.incomingMessage.headers.host;
   
   console.log('-------------------host-------------------');
@@ -49,7 +50,7 @@ nanoServer.route('GET', '/callback', async (connection) => {
   console.log('-------------------script-------------------');
   
   connection.serverResponse.end(renderBody('success', token))
-
+  console.log('---------------------------------------------------------------------------------------------');
   return {
     ok: true,
     data: {},

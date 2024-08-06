@@ -8,6 +8,9 @@ export const randomString = () => randomBytes(4).toString('hex');
 
 nanoServer.route('GET', '/auth', (connection:  AlwatrConnection) => {
 
+  console.log('---------------------------------------------------------------------------------------------');
+  
+
   console.log('-------------------connection-----------------------');
   console.log(connection);  
   console.log('-------------------connection-----------------------');
@@ -44,7 +47,12 @@ nanoServer.route('GET', '/auth', (connection:  AlwatrConnection) => {
 
   logger.logProperty?.('authorizationUri', authorizationUri)
 
+  console.log('---------------------------------------');  
+  console.log('authorizationUri', authorizationUri);
+  console.log('---------------------------------------');
+
   connection.serverResponse.setHeader('Location', authorizationUri);
+  console.log('---------------------------------------------------------------------------------------------');
   return {
     ok: true,
     statusCode: 301,
