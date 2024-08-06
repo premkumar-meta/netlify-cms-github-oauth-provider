@@ -4,7 +4,17 @@ import {nanoServer} from '../lib/nano-server.js'
 
 nanoServer.route('GET', '/callback', async (connection) => {
   const host = connection.incomingMessage.headers.host;
+  
+  console.log('-------------------host-------------------');
+  console.log(host);
+  console.log('-------------------host-------------------');
+
   const url = new URL(`https://${host}/${connection.url}`);
+
+  console.log('-------------------url-------------------');
+  console.log(url);
+  console.log('-------------------url-------------------');
+
   const provider = url.searchParams.get('provider');
   const code = url.searchParams.get('code');
   logger.logMethodArgs?.('get-callback', {host, url, provider})
